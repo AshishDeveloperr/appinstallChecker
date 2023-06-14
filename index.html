@@ -14,6 +14,9 @@
       
       window.location.href = 'https://play.google.com/store/apps/details?id=com.Ordrz.sale';
     }
+    else{
+        alert("App is installed");
+    }
     
     
     if (/iPhone|iPod|iPad/i.test(userAgent)) {
@@ -24,7 +27,8 @@
       setTimeout(function() {
         
         window.location.href = 'https://apps.apple.com/us/app/ordrz/id6443539986';
-      }, 2000); // Adjust the duration as needed
+      }
+      , 2000); // Adjust the duration as needed
     }
     
     // Display an alert if the device OS is not detected
