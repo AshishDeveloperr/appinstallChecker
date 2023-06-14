@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App Installation Check</title>
+</head>
+<body>
+  <script>
+    function detectOS() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      if (/android/i.test(userAgent)) {
+        return "Android";
+      }
+
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+      }
+
+      return "Unknown";
+    }
+
+    function checkAppInstalled() {
+      var os = detectOS();
+      var appPackage = "com.ordrz.sale";
+
+      if (os === "Android") {
+        var intentURL = "intent://" + appPackage + "/#Intent;package=" + appPackage + ";scheme=market;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end";
+        window.location.href = intentURL;
+      } else if (os === "iOS") {
+        var customURLScheme = appPackage + "://";
+        var appStoreURL = "https://apps.apple.com/us/app/ordrz/id6443539986"; 
+        var timeout = 2000; // Timeout value in milliseconds
+
+        // var iframe = document.createElement("iframe");
+        // iframe.style.display = "none";
+        // iframe.src = customURLScheme;
+        // document.body.appendChild(iframe);
+
+        var startTime = Date.now();
+        setTimeout(function () {
+          var elapsedTime = Date.now() - startTime;
+          if (elapsedTime < timeout) {
+            // window.location.href = appStoreURL;
+            alert("App is installed");
+          }else{
+            alert("App is not installed");
+          }
+        }, timeout);
+      }
+    }
+
+    checkAppInstalled();
+  </script>
+</body>
+</html>
