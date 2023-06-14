@@ -31,19 +31,16 @@
         var appStoreURL = "https://apps.apple.com/us/app/ordrz/id6443539986"; 
         var timeout = 2000; // Timeout value in milliseconds
 
-        // var iframe = document.createElement("iframe");
-        // iframe.style.display = "none";
-        // iframe.src = customURLScheme;
-        // document.body.appendChild(iframe);
+        var iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.src = customURLScheme;
+        document.body.appendChild(iframe);
 
         var startTime = Date.now();
         setTimeout(function () {
           var elapsedTime = Date.now() - startTime;
           if (elapsedTime < timeout) {
-            // window.location.href = appStoreURL;
-            alert("App is installed");
-          }else{
-            alert("App is not installed");
+            window.location.href = appStoreURL;
           }
         }, timeout);
       }
